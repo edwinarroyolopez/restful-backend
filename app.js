@@ -10,7 +10,12 @@ const app = express();
     * Connect to the database
     */
 
-mongoose.connect('mongodb://localhost');
+// mongoose.connect('mongodb://localhost', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/notebook').then(() => {
+console.log("Connected to Database");
+}).catch((err) => {
+    console.log("Not Connected to Database ERROR! ", err);
+});
 
 /**
     * Middleware

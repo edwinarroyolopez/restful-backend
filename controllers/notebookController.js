@@ -22,13 +22,18 @@ exports.getAllNotes = (req, res) => {
 };
 
 exports.createNote = (req, res) => {
+
+
+    console.log('body', req.body)
+
     const newNote = new note(req.body);
+    
+    console.log('newNote', newNote)
 
     newNote.save((err, note) => {
         if (err) {
             res.send(err);
         }
-
         res.json(note);
     });
 };
